@@ -8,5 +8,5 @@ function MazeSpace () {
 }
 
 MazeSpace.prototype.setWall = function(direction) {
-	this["direction"] = true;
+	this[direction] = true;
 };
