@@ -23,7 +23,7 @@ Robot.prototype.turnRight = function() {
 		east: "south",
 		south: "west",
 		west: "north"
-	}
+	};
 	this.orientation = rights[this.orientation];
 	return true;
 };
@@ -37,7 +37,7 @@ Robot.prototype.turnLeft = function() {
 		east: "north",
 		south: "east",
 		west: "south"
-	}
+	};
 	this.orientation = lefts[this.orientation];
 	return true;
 };
@@ -69,4 +69,22 @@ Robot.prototype.canMoveForward = function() {
 		return false;
 	}
 	return this.maze.canMove(this.x, this.y, this.orientation);
+};
+
+Robot.prototype.exitMaze = function(steps) {
+	if (this.maze) {
+		while(steps != 0) {
+			steps -= 1;
+			if (this.canMoveForward()) {
+			this.moveForward();
+			this.turnLeft();
+			} else {
+				this.turnRight();
+			}
+			if (this.x == this.maze.endX && this.y == this.maze.endY) {
+				return true;
+			}
+		}
+		return false;
+	}
 };

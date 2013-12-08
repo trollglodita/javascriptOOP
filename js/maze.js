@@ -79,6 +79,7 @@ Maze.prototype.canMove = function(x, y, direction) {
 		case "south":
 			forwardX = x;
 			forwardY = y-1;
+			break;
 		case "west":
 			forwardX = x-1;
 			forwardY = y;
